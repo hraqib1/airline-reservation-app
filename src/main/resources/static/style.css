@@ -1,0 +1,54 @@
+body {
+    background-image: url("https://followhislight.files.wordpress.com/2013/05/sedona-sunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.tableContainer table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html>body div.tableContainer table {
+	width: 850px;
+}
+
+thead.fixedHeader tr {
+    position: relative
+}
+
+html>body thead.fixedHeader tr {
+	display: block
+}
+
+thead.fixedHeader th {
+	font-weight: normal;
+	padding: 4px 3px;
+	text-align: left
+}
+
+html>body tbody.scrollContent {
+	display: block;
+	height: 400px;
+	overflow: auto;
+}
+
+html>body thead.fixedHeader th {
+	width: 200px
+}
+
+tbody > tr > td{
+    padding-right: 98px;
+}
+
+.headerbackground{
+    background-image: url("http://www.airmarket.in/news_image/5mfkty5tg.jpg");
+    background-position: 1px;
+    color: white;
+    background-repeat: no-repeat;
+    
+}
+
+.navbackground{
+    background-color: white;
+}
