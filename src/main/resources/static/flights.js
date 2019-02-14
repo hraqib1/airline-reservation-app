@@ -2,6 +2,11 @@ let baseURL = "http://localhost:9595/flight/all";
 let postURL = "http://localhost:9595/flight";
 let customerURL = "http://localhost:9595/customer/all";
 
+let minUrl = "http://localhost:9595/flight/min"
+let medUrl = "http://localhost:9595/flight/median"
+let maxUrl = "http://localhost:9595/flight/max"
+let avgUrl = "http://localhost:9595/flight/avg"
+
 function ajaxRequest(method, url, callback){
 	let xhr = new XMLHttpRequest();
 	xhr.open(method, url);
@@ -57,6 +62,7 @@ window.onload = function(){
 	ajaxRequest("GET", baseURL, displayFlights);
 	ajaxRequest("GET", customerURL, displayCustomers);
 	ajaxRequest("GET", customerURL, displayCustomerChoice);
+	getStats();
 }
 
 function displayFlights(xhr){
@@ -226,3 +232,29 @@ function deleteFlight(){
 		}
 	ajaxDELETE(postURL, deletDis);	
 }
+	function getStats(){
+		ajaxRequest("GET", avgUrl, displayAvg);
+		ajaxRequest("GET", maxUrl, displayMax);
+		ajaxRequest("GET", medUrl, displayMed);
+		ajaxRequest("GET", minUrl, displayMin);
+	}
+	 
+	 function displayAvg(xhr){
+		let avg = JSON.parse(xhr.response);
+		document.getElementById("avg").innerHTML = avg;
+	 }
+	 
+	 function displayMax(xhr){
+		let max = JSON.parse(xhr.response);
+		document.getElementById("max").innerHTML = max;
+	 }
+	 
+	 function displayMed(xhr){
+		let med = JSON.parse(xhr.response);
+		document.getElementById("med").innerHTML = med;
+	 }
+	 
+	 function displayMin(xhr){
+		let min = JSON.parse(xhr.response);
+		document.getElementById("min").innerHTML = min;
+	 }
